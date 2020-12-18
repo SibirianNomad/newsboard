@@ -13,7 +13,7 @@ class CreateAnnouncementTable extends Migration
      */
     public function up()
     {
-        Schema::create('announcement', function (Blueprint $table) {
+        Schema::create('announcements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('user_id');
@@ -23,6 +23,9 @@ class CreateAnnouncementTable extends Migration
             $table->integer('price');
             $table->boolean('status');
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

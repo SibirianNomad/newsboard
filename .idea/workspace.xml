@@ -7,9 +7,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -127,6 +134,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/jenssegers/date" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lVDxCo5cUUGrUFULd3hyhp1kap" />
@@ -138,11 +147,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../poligon" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\newsboard\public\image" />
+      <recent name="C:\poligon\htdocs\newsboard\app" />
+      <recent name="C:\poligon\htdocs\newsboard\resources\views\announcement" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\poligon\htdocs\newsboard\app\Models" />
     </key>
@@ -162,6 +177,8 @@
       <option name="presentableId" value="Default" />
       <updated>1607673608831</updated>
       <workItem from="1607673610645" duration="3416000" />
+      <workItem from="1607938964144" duration="35747000" />
+      <workItem from="1608102223269" duration="3771000" />
     </task>
     <servers />
   </component>

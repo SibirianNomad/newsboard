@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//announcement page
+Route::group(['namespace'=>'Announcement','prefix'=>'/'], function(){
+    Route::resource('/','AnnouncementController')->names('announcement');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
