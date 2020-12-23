@@ -26,7 +26,7 @@ class Announcement extends Model
         if($valueFromObject==null){
             return null;
         }else{
-            return Date::parse($valueFromObject)->format('d F Y');
+            return Date::parse($valueFromObject)->format('d.m.Y h:m:s');
         }
     }
     public function category()

@@ -24,12 +24,14 @@ class AnnouncementController extends BaseController
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
-        $paginator=$this->announcementRepository->getAllWithPaginate(6);
+        $paginator=$this->announcementRepository->getAllWithPaginate(20,$request);
         $categories=$this->categoryRepository->getAllCategory();
+        $cities=$this->announcementRepository->getAllCities();
 
-        return view('announcement.index',compact('paginator','categories'));
+        return view('announcement.index',compact('paginator','categories','cities'));
+
     }
 
     /**
@@ -39,7 +41,7 @@ class AnnouncementController extends BaseController
      */
     public function create()
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -61,7 +63,14 @@ class AnnouncementController extends BaseController
      */
     public function show($id)
     {
-        //
+        $item=$this->announcementRepository->getAnnouncement($id);
+
+        if(empty($item)){
+            abort(404);
+        }
+        $number=$this->announcementRepository->getAllAnnouncements($item->user_id);
+
+        return view('announcement.announcement_page',compact('item','number'));
     }
 
     /**
@@ -72,7 +81,7 @@ class AnnouncementController extends BaseController
      */
     public function edit($id)
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -97,4 +106,5 @@ class AnnouncementController extends BaseController
     {
         //
     }
+
 }

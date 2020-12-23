@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//announcement page
+//announcement page rest API
 Route::group(['namespace'=>'Announcement','prefix'=>'/'], function(){
-    Route::resource('/','AnnouncementController')->names('announcement');
+    Route::resource('/announcement','AnnouncementController')->names('announcement');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+

@@ -15,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -136,6 +137,8 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/jenssegers/date" />
+      <path value="$PROJECT_DIR$/vendor/menarasolutions/geographer" />
+      <path value="$PROJECT_DIR$/vendor/menarasolutions/geographer-data" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lVDxCo5cUUGrUFULd3hyhp1kap" />
@@ -154,11 +157,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\poligon\htdocs\newsboard\public\image" />
-      <recent name="C:\poligon\htdocs\newsboard\app" />
       <recent name="C:\poligon\htdocs\newsboard\resources\views\announcement" />
+      <recent name="C:\poligon\htdocs\newsboard\app\Http\Controllers\User" />
+      <recent name="C:\poligon\htdocs\newsboard\storage\app\public\default_images" />
+      <recent name="C:\poligon\htdocs\newsboard\public" />
+      <recent name="C:\poligon\htdocs\newsboard\public\image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\newsboard\storage\app\public" />
+      <recent name="C:\poligon\htdocs\newsboard\public\js" />
       <recent name="C:\poligon\htdocs\newsboard\app\Models" />
     </key>
   </component>
@@ -178,11 +185,23 @@
       <updated>1607673608831</updated>
       <workItem from="1607673610645" duration="3416000" />
       <workItem from="1607938964144" duration="35747000" />
-      <workItem from="1608102223269" duration="3771000" />
+      <workItem from="1608102223269" duration="48759000" />
+      <workItem from="1608697571094" duration="20234000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/js/main.js</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
