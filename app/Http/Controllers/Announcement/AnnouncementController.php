@@ -28,7 +28,7 @@ class AnnouncementController extends BaseController
     {
         $paginator=$this->announcementRepository->getAllWithPaginate(20,$request);
         $categories=$this->categoryRepository->getAllCategory();
-        $cities=$this->announcementRepository->getAllCities();
+        $cities=Announcement::getAllCities();
 
         return view('announcement.index',compact('paginator','categories','cities'));
 

@@ -31,10 +31,10 @@
                             class='form-control'
                             onchange="this.form.submit()"
                     >
-                        <option value="all"  selected>Город</option>
+                        <option value="все">Город</option>
                         @foreach($cities as $city)
                             <option @if(session()->get('city')==$city) selected @endif value="{{ $city }}">
-                                {{ $city}}
+                                {{ $city }}
                             </option>
                         @endforeach
                     </select>

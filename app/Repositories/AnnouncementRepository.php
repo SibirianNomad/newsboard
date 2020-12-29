@@ -5,7 +5,7 @@ namespace App\Repositories;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\Announcement as Model;
-
+use Auth;
 
 class AnnouncementRepository extends CoreRepository
 {
@@ -31,6 +31,10 @@ class AnnouncementRepository extends CoreRepository
         $city=$this->checkInputSession($request,'city');
         $text=$request->input('searchText');
 
+        if($city==null){
+            $city=$userCity=Auth::user()->city;
+        }
+
         $result=$this
             ->startConditions()
             ->select($fields)
@@ -41,7 +45,9 @@ class AnnouncementRepository extends CoreRepository
             })
             ->when($city, function ($result,$city) {
                 session(['city' => $city]);
-                $result->where('city', $city);
+                if($city!='все'){
+                    $result->where('city', $city);
+                }
             })
             ->where('title','like','%'.$text.'%')
             ->where('status',1)
@@ -51,16 +57,6 @@ class AnnouncementRepository extends CoreRepository
 
         return $result;
 
-    }
-    public function getAllCities(){
-        $result=[];
-        $string = file_get_contents("cities.json");
-        $json_a = json_decode($string, true);
-        foreach ($json_a as $value){
-            $result[]=$value['name'];
-        }
-       sort($result);
-       return $result;
     }
 
     public function getAnnouncement($id){

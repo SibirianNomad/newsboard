@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.maskedinput.min.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -58,7 +59,7 @@
                                 <a class="nav-link" href="#">Мои объявления</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Личный кабинет</a>
+                                <a class="nav-link" href="{{ route('profile.index') }}">Личный кабинет</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

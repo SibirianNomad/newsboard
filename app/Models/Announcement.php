@@ -41,6 +41,16 @@ class Announcement extends Model
     {
         return $this->hasMany('App\Models\Photo','announcement_id','id');
     }
+    public static function getAllCities(){
+        $result=[];
+        $string = file_get_contents("cities.json");
+        $json_a = json_decode($string, true);
+        foreach ($json_a as $value){
+            $result[]=$value['name'];
+        }
+        sort($result);
+        return $result;
+    }
 
 
 

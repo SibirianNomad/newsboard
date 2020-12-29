@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//announcement page rest API
+//announcement rest API
 Route::group(['namespace'=>'Announcement','prefix'=>'/'], function(){
     Route::resource('/announcement','AnnouncementController')->names('announcement');
 });
+
+//profile page
+Route::group(['namespace'=>'User','prefix'=>'/'], function(){
+    Route::resource('/profile','UserController')
+        ->only(['index','update','destroy'])
+        ->names('profile');
+});
+//upload avatar for profile
+Route::post('/profile',[UserController::class, 'update_avatar']);
 
 Auth::routes();
 
