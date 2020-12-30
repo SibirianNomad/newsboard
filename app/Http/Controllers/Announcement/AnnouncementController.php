@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Announcement;
 use App\Http\Controllers\Announcement\BaseController;
 use Illuminate\Http\Request;
 use App\Models\Announcement;
+use App\Models\User;
 use App\Repositories\AnnouncementRepository;
 use App\Repositories\CategoryRepository;
+use Auth;
+use App\Http\Requests\AnnouncementCreateRequest;
 
 class AnnouncementController extends BaseController
 {
@@ -41,7 +44,17 @@ class AnnouncementController extends BaseController
      */
     public function create()
     {
-        dd(__METHOD__);
+        $user=Auth::user();
+        if($user==null){
+            return redirect('/login');
+        }
+        $item=new Announcement();
+
+        $title='Добавить';
+        $categories=$this->categoryRepository->getAllCategory();
+        $cities=Announcement::getAllCities();
+
+        return view('announcement.edit_page',compact('title','categories','cities','item'));
     }
 
     /**
@@ -50,9 +63,10 @@ class AnnouncementController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnnouncementCreateRequest $request)
     {
-        //
+        $data=$request->all();
+        dd($data);
     }
 
     /**

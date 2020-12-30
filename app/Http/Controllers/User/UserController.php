@@ -20,14 +20,10 @@ class UserController extends BaseController
     }
     public function index()
     {
-        if(Auth::user()==null){
-            return redirect('/login');
-        }else{
             $user=Auth::user();
             $cities=Announcement::getAllCities();
 
             return view('user.index',compact('user','cities'));
-        }
     }
     public function update(Request $request,$id)
     {
@@ -49,9 +45,6 @@ class UserController extends BaseController
     }
     public function destroy($id)
     {
-        $idUser=Auth::user()->id;
-
-        if($idUser==$id){
             $item=$this->userRepository->getEdit($id);
             if(empty($item)){
                 return back()->withErrors(['msg'=>"Пользователь id[{$id}] не найден"])->withInput();
@@ -65,7 +58,6 @@ class UserController extends BaseController
             }else{
                 return back()->withErrors(['msg'=>"Ошибка, аватар не удален"])->withInput();
             }
-        }
     }
     public function update_avatar(Request $request)
     {

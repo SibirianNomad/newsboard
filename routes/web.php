@@ -23,10 +23,11 @@ Route::group(['namespace'=>'Announcement','prefix'=>'/'], function(){
 Route::group(['namespace'=>'User','prefix'=>'/'], function(){
     Route::resource('/profile','UserController')
         ->only(['index','update','destroy'])
+        ->middleware('auth')
         ->names('profile');
 });
 //upload avatar for profile
-Route::post('/profile',[UserController::class, 'update_avatar']);
+Route::post('/profile',[UserController::class, 'update_avatar'])->middleware('auth');
 
 Auth::routes();
 

@@ -150,18 +150,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\newsboard\app\Http\Requests" />
+      <recent name="C:\poligon\htdocs\newsboard\resources\views\announcement" />
       <recent name="C:\poligon\htdocs\newsboard\public\storage" />
       <recent name="C:\poligon\htdocs\newsboard\app\Console" />
       <recent name="C:\poligon\htdocs\newsboard\resources\views\includes" />
-      <recent name="C:\poligon\htdocs\newsboard\resources\lang\ru" />
-      <recent name="C:\poligon\htdocs\newsboard\app\Repositories" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\poligon\htdocs\newsboard\storage\app\public" />
@@ -189,7 +189,7 @@
       <workItem from="1608697571094" duration="28046000" />
       <workItem from="1608881679819" duration="19907000" />
       <workItem from="1609130778778" duration="3773000" />
-      <workItem from="1609226751881" duration="7609000" />
+      <workItem from="1609226751881" duration="21639000" />
     </task>
     <servers />
   </component>
@@ -203,6 +203,11 @@
           <url>file://$PROJECT_DIR$/public/js/main.js</url>
           <line>1</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Policies/AnnouncementPolicy.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

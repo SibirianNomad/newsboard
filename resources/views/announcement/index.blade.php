@@ -2,7 +2,7 @@
 
 @section('content')
     <div class='container'>
-        <h3 class="text-center">Актуальные объявления {{ Session::get('city')}}</h3>
+        <h3 class="text-center">Актуальные объявления</h3>
         <div class='d-flex bd-highlight'>
             <div class="flex-fill bd-highlight mb-4">
                 <form method="GET"
