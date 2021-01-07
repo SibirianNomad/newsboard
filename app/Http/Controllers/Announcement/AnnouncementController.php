@@ -6,8 +6,10 @@ use App\Http\Controllers\Announcement\BaseController;
 use Illuminate\Http\Request;
 use App\Models\Announcement;
 use App\Models\User;
+use App\Models\Photo;
 use App\Repositories\AnnouncementRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\PhotoRepository;
 use Auth;
 use App\Http\Requests\AnnouncementCreateRequest;
 
@@ -15,11 +17,13 @@ class AnnouncementController extends BaseController
 {
     private $announcementRepository;
     private $categoryRepository;
+    private $photoRepository;
 
     public function __construct(){
         parent::__construct();
         $this->announcementRepository=app(AnnouncementRepository::class);
         $this->categoryRepository=app(CategoryRepository::class);
+        $this->photoRepository=app(PhotoRepository::class);
     }
     /**
      * Display a listing of the resource.
@@ -48,13 +52,14 @@ class AnnouncementController extends BaseController
         if($user==null){
             return redirect('/login');
         }
+        $id=$user->id;
         $item=new Announcement();
 
         $title='Добавить';
         $categories=$this->categoryRepository->getAllCategory();
         $cities=Announcement::getAllCities();
 
-        return view('announcement.edit_page',compact('title','categories','cities','item'));
+        return view('announcement.edit_page',compact('title','categories','cities','item','id'));
     }
 
     /**
@@ -65,8 +70,23 @@ class AnnouncementController extends BaseController
      */
     public function store(AnnouncementCreateRequest $request)
     {
-        $data=$request->all();
-        dd($data);
+        $data=$request->only(['title','category_id','description','city','price','user_id']);
+        $data['status']=1;
+
+        $photo=$request->file('file');
+
+        $item=(new Announcement())->create($data);
+
+        if($photo!=null && $item){
+            $fileName=$photo->getClientOriginalName();
+            $this->photoRepository->storePhoto($request,$item->id,$fileName);
+        }
+        if($item){
+            return redirect('/announcements/'.$data['user_id'])
+                ->with(['success'=>'Объявление успешно сохранено']);
+        }else{
+            return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
+        }
     }
 
     /**
@@ -119,6 +139,10 @@ class AnnouncementController extends BaseController
     public function destroy($id)
     {
         //
+    }
+    public function user_announcements($id)
+    {
+        dd($id);
     }
 
 }

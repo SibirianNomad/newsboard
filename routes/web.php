@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Announcement\AnnouncementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use App\Http\Controllers\User\UserController;
 Route::group(['namespace'=>'Announcement','prefix'=>'/'], function(){
     Route::resource('/announcement','AnnouncementController')->names('announcement');
 });
+//get user announcements
+Route::get('/announcements/{id}',[AnnouncementController::class, 'user_announcements'])->middleware('auth');
 
 //profile page
 Route::group(['namespace'=>'User','prefix'=>'/'], function(){

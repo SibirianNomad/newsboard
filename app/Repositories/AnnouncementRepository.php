@@ -32,7 +32,9 @@ class AnnouncementRepository extends CoreRepository
         $text=$request->input('searchText');
 
         if($city==null){
-            $city=$userCity=Auth::user()->city;
+            if(isset(Auth::user()->city)){
+                $city=$userCity=Auth::user()->city;
+            }
         }
 
         $result=$this

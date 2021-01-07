@@ -23,13 +23,17 @@
                                    class='form-control'
                             >
                         </div>
+                        <input name="user_id"
+                               value='{{$id}}'
+                               id="user_id"
+                               hidden
+                        />
                         <div class='form-group'>
                             <label for='category_id'>Категория</label>
                             <select name='category_id'
                                     id='category_id'
                                     class='form-control'
                             >
-                                <option disabled  selected>Категория</option>
                                 @foreach($categories as $category)
                                     <option @if(isset($item->category->name))
                                                 @if($item->category->name==$category->name)
@@ -51,9 +55,9 @@
                             >{{ old('description',$item->description) }}</textarea>
                         </div>
                         <div class='form-group w-50'>
-                            <label for='category_id'>Город</label>
-                            <select name='category_id'
-                                    id='category_id'
+                            <label for='city'>Город</label>
+                            <select name='city'
+                                    id='city'
                                     class='form-control'
                             >
                                 <option disabled  selected>Город</option>
@@ -72,23 +76,23 @@
                             <input name='price'
                                    value='{{$item->price}}'
                                    id='price'
-                                   type='text'
+                                   type='number'
                                    class='form-control'
-                            >
+                            >руб
                         </div>
                         <div class="form-group">
                             <label for='file'>Фотография</label>
-                            <input type='file' id="file" name='file[]' class="form-control-file" onchange="readURL(this)"  multiple="multiple">
+                            <input type='file' id="file" name='file' class="form-control-file" onchange="readURL(this)">
                             <small id="file" class="form-text text-muted">Вы можете загрузить фотографию в формате jpeg, jpg, png весом не более 10 Мб</small>
                         </div>
                         <div class="row" id="selected_photos">
-
+                            <button type="button" class="close position-absolute d-none" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-
-
                         <button type='submit' class='btn btn-primary float-right'>Добавить</button>
                 </div>
         </div>
-    </from>
+    </form>
 @endsection
 

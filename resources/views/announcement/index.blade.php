@@ -59,11 +59,11 @@
             </div>
             </form>
         </div>
-        <div class='row justify-container-center'>
+        <div class='row justify-container-center mt-2'>
             @foreach($paginator as $item)
                 <div class="col-sm">
                     <a href="{{ route('announcement.show',$item->id) }}">
-                        <img class="mx-auto d-block" width="300" src=@if(count($item->photos)==0)"{{ asset('storage/default_images/empty_picture.png') }}"@else{{$item->photos[0]->file_patch}} @endif>
+                        <img class="mx-auto d-block" width="300" src=@if(count($item->photos)==0)"{{ asset('storage/default_images/empty_picture.png') }}"@else"storage/images/{{$item->photos[0]->file_patch}}" @endif>
                         <h5>{{$item->title}}</h5>
                     </a>
                     <div>Цена: {{$item->price}} руб</div>

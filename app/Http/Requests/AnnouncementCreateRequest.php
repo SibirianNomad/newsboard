@@ -25,7 +25,26 @@ class AnnouncementCreateRequest extends FormRequest
     {
         return [
             'title'          => 'required|min:5|max:200',
-            'description'    => 'string|min:3|max:500'
+            'category_id'    => 'required|integer|exists:categories,id',
+            'description'    => 'string|min:3|max:500',
+            'city'           => 'required',
+            'price'          => 'required|integer',
+            'file'           => 'image|mimes:jpeg,jpg,png|max:10000'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title'         => 'Заголовок',
+            'category_id'   => 'Категория',
+            'price'         => 'Цена'
+        ];
+    }
+    public function messages(){
+        return[
+            'file.max'    => 'Размер загружаемой фотографии должен быть не больше 10 Мб',
+            'file.mimes'    => 'Фотография должна быть файлом одного из следующих типов: jpeg, jpg, png'
         ];
     }
 }

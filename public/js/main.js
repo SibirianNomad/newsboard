@@ -10,13 +10,20 @@ function readURL(input)
 
         reader.onload = function (e)
         {
+            $('#photo').remove();
             var img=$( "<img/>", {
                 class: "col-lg-3 col-md-4 col-6",
-                src:e.target.result
+                src:e.target.result,
+                id:"photo"
             });
-            $('#selected_photos').append( img )
+            $('#selected_photos').append( img );
+            let width=$('#photo').width()-($('#photo').width()*5/100);
+            $('.close').css('left',width);
+            $('.close').css('z-index','100');
+            $('.close').removeClass('d-none');
         }
 
         reader.readAsDataURL(input.files[0]);
     }
 }
+
