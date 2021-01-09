@@ -115,7 +115,7 @@ class AnnouncementController extends BaseController
      */
     public function edit($id)
     {
-        dd(__METHOD__);
+        dd($id);
     }
 
     /**
@@ -138,11 +138,24 @@ class AnnouncementController extends BaseController
      */
     public function destroy($id)
     {
-        //
-    }
-    public function user_announcements($id)
-    {
         dd($id);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * Announcements of one user with $id
+     */
+
+    public function user_announcements(Request $request,$id)
+    {
+        $paginator=$this->announcementRepository->getAllWithPaginate(5,$request,$id);
+        $categories=$this->categoryRepository->getAllCategory();
+        $cities=Announcement::getAllCities();
+
+        return view('announcement.announcements_user',compact('paginator','categories','cities'));
     }
 
 }

@@ -21,6 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -56,7 +57,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Мои объявления</a>
+                                <a class="nav-link" href="/announcements/{{ Auth::user()->id }}">Мои объявления</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.index') }}">Личный кабинет</a>

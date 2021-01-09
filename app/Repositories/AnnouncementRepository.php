@@ -13,7 +13,7 @@ class AnnouncementRepository extends CoreRepository
     protected function getModelClass(){
         return Model::class;
     }
-    public function getAllWithPaginate($limit,$request){
+    public function getAllWithPaginate($limit,$request,$id=null){
 
         $fields=[
             'id',
@@ -51,8 +51,13 @@ class AnnouncementRepository extends CoreRepository
                     $result->where('city', $city);
                 }
             })
+            ->when($id,function ($result,$id){
+                $result->where('user_id', $id);
+            })
+            ->when($id==null,function ($result){
+                $result->where('status', 1);
+            })
             ->where('title','like','%'.$text.'%')
-            ->where('status',1)
             ->orderBy('created_at','DESC')
             ->paginate($limit);
 

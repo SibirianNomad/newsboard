@@ -14,7 +14,7 @@
                     <div>
                         <span class="font-weight-bold">{{$item->created_at}} Город: </span>{{$item->city}}
                     </div>
-                    <img class="w-100" src=@if(count($item->photos)==0)"{{ asset('storage/default_images/empty_picture.png') }}"@else {{$item->photos[0]->file_patch}} @endif/>
+                    <img class="w-100" src=@if(count($item->photos)==0)"{{ asset('storage/default_images/empty_picture.png') }}"@else {{ asset("storage/images/") }}/{{$item->photos[0]->file_patch}} @endif/>
                     <div>{{$item->description}}</div>
             </div>
             <div class='col-md-4 border'>
