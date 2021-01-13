@@ -29,8 +29,7 @@ Route::group(['namespace'=>'User','prefix'=>'/'], function(){
         ->middleware('auth')
         ->names('profile');
 });
-//upload avatar for profile
-Route::post('/profile',[UserController::class, 'update_avatar'])->middleware('auth');
+
 
 Auth::routes();
 

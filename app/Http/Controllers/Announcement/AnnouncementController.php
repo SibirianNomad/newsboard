@@ -12,6 +12,7 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\PhotoRepository;
 use Auth;
 use App\Http\Requests\AnnouncementCreateRequest;
+use App\Http\Requests\AnnouncementUpdateRequest;
 
 class AnnouncementController extends BaseController
 {
@@ -52,14 +53,14 @@ class AnnouncementController extends BaseController
         if($user==null){
             return redirect('/login');
         }
-        $id=$user->id;
+        $userId=$user->id;
         $item=new Announcement();
 
         $title='Добавить';
         $categories=$this->categoryRepository->getAllCategory();
         $cities=Announcement::getAllCities();
 
-        return view('announcement.edit_page',compact('title','categories','cities','item','id'));
+        return view('announcement.edit_page',compact('title','categories','cities','item','userId'));
     }
 
     /**
@@ -78,7 +79,7 @@ class AnnouncementController extends BaseController
         $item=(new Announcement())->create($data);
 
         if($photo!=null && $item){
-            $fileName=$photo->getClientOriginalName();
+            $fileName = $item->id.'_images'.time().'.'.$photo->getClientOriginalExtension();
             $this->photoRepository->storePhoto($request,$item->id,$fileName);
         }
         if($item){
@@ -115,7 +116,21 @@ class AnnouncementController extends BaseController
      */
     public function edit($id)
     {
-        dd($id);
+        $user=Auth::user();
+        if($user==null){
+            return redirect('/login');
+        }
+        $userId=$user->id;
+        $item=$this->announcementRepository->getAnnouncement($id);
+
+        if(empty($item) || $item->status==0){
+            abort(404);
+        }
+        $title='Изменить';
+        $categories=$this->categoryRepository->getAllCategory();
+        $cities=Announcement::getAllCities();
+
+        return view('announcement.edit_page',compact('title','categories','cities','item','userId'));
     }
 
     /**
@@ -125,9 +140,30 @@ class AnnouncementController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AnnouncementUpdateRequest $request, $id)
     {
-        //
+        $item=$this->announcementRepository->getAnnouncement($id);
+
+        if(empty($item)){
+            return back()->withErrors(['msg'=>"Объявление id[{$id}] не найдено"])->withInput();
+        }
+
+        $data=$request->only(['title','category_id','description','city','price','user_id']);
+
+        $result=$item->update($data);
+
+        $photo=$request->file('file');
+        if($photo!=null && $item){
+            $fileName = $item->id.'_images'.time().'.'.$photo->getClientOriginalExtension();
+            $this->photoRepository->storePhoto($request,$item->id,$fileName);
+        }
+
+        if($result){
+            return redirect('/announcements/'.$data['user_id'])
+                ->with(['success'=>'Объявление успешно изменено']);
+        }else{
+            return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
+        }
     }
 
     /**
@@ -138,7 +174,19 @@ class AnnouncementController extends BaseController
      */
     public function destroy($id)
     {
-        dd($id);
+        $item=$this->announcementRepository->getAnnouncement($id);
+
+        if(empty($item)){
+            abort(404);
+        }
+        $result=$item->update(['status'=>0]);
+
+        if($result){
+            return redirect('/announcements/'.Auth::user()->id)
+                ->with(['success'=>"Объявление успешно снято с публикации"]);
+        }else{
+            return back()->withErrors(['msg'=>"Ошибка смены статуса объявления"]);
+        }
     }
 
     /**
@@ -151,11 +199,10 @@ class AnnouncementController extends BaseController
 
     public function user_announcements(Request $request,$id)
     {
-        $paginator=$this->announcementRepository->getAllWithPaginate(5,$request,$id);
+        $paginator=$this->announcementRepository->getAllWithPaginate(20,$request,$id);
         $categories=$this->categoryRepository->getAllCategory();
-        $cities=Announcement::getAllCities();
-
-        return view('announcement.announcements_user',compact('paginator','categories','cities'));
+        $status=$request->input('status');
+        return view('announcement.announcements_user',compact('paginator','categories','status'));
     }
 
 }

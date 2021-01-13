@@ -1,8 +1,20 @@
+
 $(function(){$("#phone").mask("+7(999)-999-9999");})
-function uploadPhoto(){
-    $('#uploadPhoto').submit();
+function readURLAvatar(input){
+    if (input.files && input.files[0])
+    {
+        var reader = new FileReader();
+
+        reader.onload = function (e)
+        {
+           var img=$(input).prev();
+           $(img).attr('src',e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }
-function readURL(input)
+function readURLImage(input)
 {
     if (input.files && input.files[0])
     {
@@ -21,9 +33,24 @@ function readURL(input)
             $('.close').css('left',width);
             $('.close').css('z-index','100');
             $('.close').removeClass('d-none');
+            $('.close').on('click',function () {
+                $('#photo').remove();
+                $('.close').addClass('d-none');
+                $(input).val('');
+            });
         }
 
         reader.readAsDataURL(input.files[0]);
     }
 }
+function showPhoto(e){
+    $('.img-photo img').remove();
+    var src=$(e).attr('src');
+    var img=$( "<img/>", {
+        src:src,
+        class: 'w-100'
+    });
+    $('.img-photo').append(img);
+}
+
 

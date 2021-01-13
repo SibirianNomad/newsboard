@@ -28,15 +28,19 @@ class AnnouncementRepository extends CoreRepository
         ];
 
         $category_id=$this->checkInputSession($request,'category_id');
-        $city=$this->checkInputSession($request,'city');
         $text=$request->input('searchText');
+        $status=$request->input('status');
 
-        if($city==null){
-            if(isset(Auth::user()->city)){
-                $city=$userCity=Auth::user()->city;
+        if($id==null){
+            $city=$this->checkInputSession($request,'city');
+            if($city==null && $id==null){
+                if(isset(Auth::user()->city)){
+                    $city=$userCity=Auth::user()->city;
+                }
             }
+        }else{
+            $city=null;
         }
-
         $result=$this
             ->startConditions()
             ->select($fields)
@@ -51,11 +55,17 @@ class AnnouncementRepository extends CoreRepository
                     $result->where('city', $city);
                 }
             })
+            ->when($id==null,function ($result){
+                $result->where('status', 1);
+            })
             ->when($id,function ($result,$id){
                 $result->where('user_id', $id);
             })
-            ->when($id==null,function ($result){
+            ->when($status==1,function ($result){
                 $result->where('status', 1);
+            })
+            ->when($status==2,function ($result){
+                $result->where('status', 0);
             })
             ->where('title','like','%'.$text.'%')
             ->orderBy('created_at','DESC')
@@ -91,6 +101,7 @@ class AnnouncementRepository extends CoreRepository
         }
         return $value;
     }
+
 
 
 }

@@ -19,6 +19,14 @@
       </list>
     </option>
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -139,6 +147,24 @@
       <path value="$PROJECT_DIR$/vendor/jenssegers/date" />
       <path value="$PROJECT_DIR$/vendor/menarasolutions/geographer" />
       <path value="$PROJECT_DIR$/vendor/menarasolutions/geographer-data" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/vendor/kreait/clock" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-php" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-tokens" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/google/grpc-gcp" />
+      <path value="$PROJECT_DIR$/vendor/google/gax" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-firestore" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-core" />
+      <path value="$PROJECT_DIR$/vendor/google/protobuf" />
+      <path value="$PROJECT_DIR$/vendor/google/common-protos" />
+      <path value="$PROJECT_DIR$/vendor/grpc/grpc" />
+      <path value="$PROJECT_DIR$/vendor/rize/uri-template" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lVDxCo5cUUGrUFULd3hyhp1kap" />
@@ -150,23 +176,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/announcement" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../internetShop" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\poligon\htdocs\newsboard\resources\views\announcement" />
-      <recent name="C:\poligon\htdocs\newsboard\app\Repositories" />
       <recent name="C:\poligon\htdocs\newsboard\app\Http\Requests" />
-      <recent name="C:\poligon\htdocs\newsboard\public\storage" />
-      <recent name="C:\poligon\htdocs\newsboard\app\Console" />
+      <recent name="C:\poligon\htdocs\newsboard\public\js\popup" />
+      <recent name="C:\poligon\htdocs\newsboard\resources\views\popup" />
+      <recent name="C:\poligon\htdocs\newsboard\app\Repositories" />
+      <recent name="C:\poligon\htdocs\newsboard\resources\views\announcement" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\newsboard\resources\views\includes" />
+      <recent name="C:\poligon\htdocs\newsboard\app\Repositories" />
+      <recent name="C:\poligon\htdocs\newsboard\app\Http\Controllers" />
+      <recent name="C:\poligon\htdocs\newsboard\app\Http\Controllers\Announcement" />
       <recent name="C:\poligon\htdocs\newsboard\storage\app\public" />
-      <recent name="C:\poligon\htdocs\newsboard\public\js" />
-      <recent name="C:\poligon\htdocs\newsboard\app\Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -206,7 +234,50 @@
       <workItem from="1610172315634" duration="2721000" />
       <workItem from="1610175080343" duration="1776000" />
       <workItem from="1610176898871" duration="1776000" />
-      <workItem from="1610178706716" duration="100000" />
+      <workItem from="1610178706716" duration="1187000" />
+      <workItem from="1610180547859" duration="1778000" />
+      <workItem from="1610182355460" duration="908000" />
+      <workItem from="1610333039329" duration="1589000" />
+      <workItem from="1610334846239" duration="1795000" />
+      <workItem from="1610336679666" duration="1779000" />
+      <workItem from="1610338489033" duration="1047000" />
+      <workItem from="1610340310516" duration="1411000" />
+      <workItem from="1610342135906" duration="526000" />
+      <workItem from="1610342922246" duration="1216000" />
+      <workItem from="1610344729882" duration="944000" />
+      <workItem from="1610347167104" duration="1776000" />
+      <workItem from="1610348972114" duration="1728000" />
+      <workItem from="1610350853078" duration="1576000" />
+      <workItem from="1610352663198" duration="3671000" />
+      <workItem from="1610356385739" duration="1789000" />
+      <workItem from="1610358213615" duration="1093000" />
+      <workItem from="1610360034588" duration="1400000" />
+      <workItem from="1610362103326" duration="1731000" />
+      <workItem from="1610363946997" duration="1541000" />
+      <workItem from="1610367341147" duration="423000" />
+      <workItem from="1610419017791" duration="1748000" />
+      <workItem from="1610420826606" duration="1782000" />
+      <workItem from="1610422643134" duration="1193000" />
+      <workItem from="1610424456379" duration="1936000" />
+      <workItem from="1610426515603" duration="2138000" />
+      <workItem from="1610428691007" duration="1776000" />
+      <workItem from="1610430505440" duration="1778000" />
+      <workItem from="1610432314613" duration="1143000" />
+      <workItem from="1610435716855" duration="1777000" />
+      <workItem from="1610437528880" duration="1611000" />
+      <workItem from="1610446081996" duration="1781000" />
+      <workItem from="1610447898085" duration="959000" />
+      <workItem from="1610452120497" duration="1012000" />
+      <workItem from="1610509427963" duration="1779000" />
+      <workItem from="1610511238055" duration="1779000" />
+      <workItem from="1610513048445" duration="1191000" />
+      <workItem from="1610514880901" duration="1744000" />
+      <workItem from="1610516687825" duration="3368000" />
+      <workItem from="1610520343533" duration="1781000" />
+      <workItem from="1610522155520" duration="2170000" />
+      <workItem from="1610524414569" duration="637000" />
+      <workItem from="1610526221107" duration="937000" />
+      <workItem from="1610531073894" duration="179000" />
     </task>
     <servers />
   </component>
@@ -218,7 +289,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/js/main.js</url>
-          <line>1</line>
+          <line>2</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

@@ -8,7 +8,7 @@ use App\Models\Announcement;
 use App\Repositories\UserRepository;
 use Auth;
 use Illuminate\Support\Facades\Storage;
-
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends BaseController
 {
@@ -25,15 +25,22 @@ class UserController extends BaseController
 
             return view('user.index',compact('user','cities'));
     }
-    public function update(Request $request,$id)
+    public function update(UserUpdateRequest $request,$id)
     {
-
         $item=$this->userRepository->getEdit($id);
 
         if(empty($item)){
             return back()->withErrors(['msg'=>"Пользователь id[{$id}] не найден"])->withInput();
         }
+
         $data=$request->all();
+        $photo=$request->file('avatar');
+
+        if($photo!=null && $item){
+            $avatarName = $item->id.'_avatar'.time().'.'.$photo->getClientOriginalExtension();
+            $this->userRepository->updateAvatar($request,$avatarName,$item);
+            $data['avatar']=$avatarName;
+        }
 
         $result=$item->update($data);
 
@@ -45,25 +52,7 @@ class UserController extends BaseController
     }
     public function destroy($id)
     {
-            $item=$this->userRepository->getEdit($id);
-            if(empty($item)){
-                return back()->withErrors(['msg'=>"Пользователь id[{$id}] не найден"])->withInput();
-            }
 
-            Storage::delete('public/avatars/'.Auth::user()->avatar);
-            $result=$item->update(['avatar'=>null]);
-
-            if($result){
-                return back()->with(['success'=>'Автарка удалена']);
-            }else{
-                return back()->withErrors(['msg'=>"Ошибка, аватар не удален"])->withInput();
-            }
-    }
-    public function update_avatar(Request $request)
-    {
-
-        $this->userRepository->updateAvatar($request);
-        return back()->with('success','Ваше изображение удачно загружено');
     }
 
 

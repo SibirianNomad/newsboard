@@ -63,7 +63,11 @@
             @foreach($paginator as $item)
                 <div class="col-sm">
                     <a href="{{ route('announcement.show',$item->id) }}">
-                        <img @if(count($item->photos)==0)src="{{ asset('storage/default_images/empty_picture.png') }}"@else class="announcement_img" src="storage/images/{{$item->photos[0]->file_patch}}" @endif>
+                        @if(count($item->photos)==0)
+                            <img src="{{ asset('storage/default_images/empty_picture.png') }}" class="announcement_img">
+                        @else
+                                <img src="storage/images/{{$item->photos[0]->file_patch}}">
+                        @endif
                         <h5>{{$item->title}}</h5>
                     </a>
                     <div>Цена: {{$item->price}} руб</div>

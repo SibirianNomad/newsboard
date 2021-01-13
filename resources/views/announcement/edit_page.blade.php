@@ -2,10 +2,10 @@
 
 @section('content')
     @if($item->exists)
-            <form method='POST' action="{{ route('announcement.update', $item->id ) }}">
+            <form method='POST' action="{{ route('announcement.update', $item->id ) }}" enctype="multipart/form-data">
                 @method('PATCH')
                 @else
-                    <form method='POST' action="{{ route('announcement.store') }}" enctype="multipart/form-data"ы>
+                    <form method='POST' action="{{ route('announcement.store') }}" enctype="multipart/form-data">
                         @endif
                         @csrf
         <div class='container'>
@@ -24,7 +24,7 @@
                             >
                         </div>
                         <input name="user_id"
-                               value='{{$id}}'
+                               value='{{$userId}}'
                                id="user_id"
                                hidden
                         />
@@ -82,15 +82,30 @@
                         </div>
                         <div class="form-group">
                             <label for='file'>Фотография</label>
-                            <input type='file' id="file" name='file' class="form-control-file" onchange="readURL(this)">
+                            <input type='file'
+                                   id="file"
+                                   name='file'
+                                   class="form-control-file"
+                                   onchange="readURLImage(this)"
+                            >
                             <small id="file" class="form-text text-muted">Вы можете загрузить фотографию в формате jpeg, jpg, png весом не более 10 Мб</small>
                         </div>
                         <div class="row" id="selected_photos">
                             <button type="button" class="close position-absolute d-none" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+                            @if(isset($item->photos[0]))
+                                <img src="{{ asset("storage/images/") }}/{{$item->photos[0]->file_patch}}"
+                                     class="col-lg-3 col-md-4 col-6"
+                                     id="photo"
+                                >
+                            @endif
                         </div>
-                        <button type='submit' class='btn btn-primary float-right'>Добавить</button>
+                        @if($item->exists)
+                            <button type='submit' class='btn btn-primary float-right'>Сохранить изменения</button>
+                        @else
+                            <button type='submit' class='btn btn-primary float-right'>Добавить</button>
+                        @endif
                 </div>
         </div>
     </form>
