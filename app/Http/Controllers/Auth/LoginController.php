@@ -37,8 +37,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    protected function authenticated()
+    {
+        session()->forget(['city','category_id']);
+    }
     public function logout() {
         Auth::logout();
+        session()->forget(['city','category_id']);
         return redirect('/announcement');
     }
 }

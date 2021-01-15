@@ -7,7 +7,7 @@ function readURLAvatar(input){
 
         reader.onload = function (e)
         {
-           var img=$(input).prev();
+           var img=$(input).prev().children();
            $(img).attr('src',e.target.result);
         }
 
@@ -52,5 +52,12 @@ function showPhoto(e){
     });
     $('.img-photo').append(img);
 }
-
+$(document).ready(function(){
+    $.each($('.preview-image img'),function () {
+        var height=$(this).height();
+        if(height<134){
+            $(this).css('height','134');
+        }
+    });
+});
 

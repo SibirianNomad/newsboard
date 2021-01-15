@@ -34,10 +34,11 @@ class PhotoRepository extends CoreRepository
             ];
             (new Photo())->create($photos);
         }
-        $img = Image::make('storage/app/public/images/'.$fileName);
-        $img->resize(320, 240);
+        $request->file->storeAs('public/images',$fileName);
 
-        //$request->file->storeAs('public/images',$fileName);
+//        $img = Image::make($request->file('file'));
+//        $img->resize(320, 240);
+//        dd($img);
 
     }
 }

@@ -14,12 +14,21 @@
                     <div>
                         <span class="font-weight-bold">{{$item->created_at}} Город: </span>{{$item->city}}
                     </div>
-                    <img src=@if(count($item->photos)==0)"{{ asset('storage/default_images/empty_picture.png') }}"@else {{ asset("storage/images/") }}/{{$item->photos[0]->file_patch}} @endif/>
+                    <div class="main-image">
+                        @if(count($item->photos)==0)
+                            <img src="{{ asset('storage/default_images/empty_picture.png') }}">
+                        @else
+
+                            <img src="{{ asset("storage/images/") }}/{{$item->photos[0]->file_patch}}">
+                        @endif
+                    </div>
                     <div>{{$item->description}}</div>
             </div>
             <div class='col-md-4 border'>
-                <img class="border h-25 mt-3" src=@if($item->user->avatar==null)"{{ asset('storage/default_images/empty_profile.png') }}"@else "{{ asset("storage/avatars/") }}/{{$item->user->avatar}}" @endif/>
-                <div class="mt-2 mb-2">
+                <div class="avatar-image">
+                    <img class="border mt-3" src=@if($item->user->avatar==null)"{{ asset('storage/default_images/empty_profile.png') }}"@else "{{ asset("storage/avatars/") }}/{{$item->user->avatar}}" @endif/>
+                </div>
+                    <div class="mt-2 mb-2">
                     <span class="font-weight-bold">Имя</span>
                     {{$item->user->name}}
                 </div>

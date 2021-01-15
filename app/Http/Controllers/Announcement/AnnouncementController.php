@@ -100,7 +100,7 @@ class AnnouncementController extends BaseController
     {
         $item=$this->announcementRepository->getAnnouncement($id);
 
-        if(empty($item)){
+        if(empty($item) || $item->status==0){
             abort(404);
         }
         $number=$this->announcementRepository->getAllAnnouncements($item->user_id);

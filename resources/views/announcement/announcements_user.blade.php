@@ -100,6 +100,7 @@
                         <div class="font-weight-bold mr-2">Цена:</div>
                         {{$item->price}} руб
                     </div>
+                    <div class="preview-image">
                         <img
                             @if(count($item->photos)==0)
                                 src="{{ asset('storage/default_images/empty_picture.png') }}"
@@ -110,6 +111,7 @@
                                 data-target="#popupImage"
                             @endif
                         >
+                    </div>
                 </div>
             @endforeach
         </div>

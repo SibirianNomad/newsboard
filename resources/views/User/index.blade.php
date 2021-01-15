@@ -8,15 +8,17 @@
                 @csrf
             <div class='row justify-container-center'>
                     <div class="col-md-4">
-                        <img class="border w-100" src=@if($user->avatar==null)"{{ asset('storage/default_images/empty_profile.png') }}"@else "{{ asset("storage/avatars/") }}/{{$user->avatar}}" @endif/>
-                            <input type='file'
-                                   id="avatar"
-                                   name='avatar'
-                                   class="form-control-file"
-                                   hidden
-                                   onchange="readURLAvatar(this)"
-                            >
-                            <label for="avatar" class="btn btn-primary w-100">Выбрать фото</label>
+                        <div class="avatar-image">
+                            <img class="border" src=@if($user->avatar==null)"{{ asset('storage/default_images/empty_profile.png') }}"@else "{{ asset("storage/avatars/") }}/{{$user->avatar}}" @endif/>
+                        </div>
+                        <input type='file'
+                               id="avatar"
+                               name='avatar'
+                               class="form-control-file"
+                               hidden
+                               onchange="readURLAvatar(this)"
+                        >
+                        <label for="avatar" class="btn btn-primary submit-button-avatar">Загрузить фото</label>
                     </div>
                 <div class="col-md-6">
                             <div class='form-group'>

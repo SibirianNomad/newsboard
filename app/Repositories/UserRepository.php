@@ -29,13 +29,6 @@ class UserRepository extends CoreRepository
             unlink(storage_path('app/public/avatars/'.$user->avatar));
         }
         $request->avatar->storeAs('public/avatars',$avatarName);
-
-//        $img = Image::make($request->file('avatar')->getRealPath());
-//        $img->resize(350, 342, function ($constraint) {
-//            $constraint->aspectRatio();
-//        });
-//        $img->save('storage/avatars/'.$avatarName);
-
         $user->avatar = $avatarName;
         $user->save();
     }

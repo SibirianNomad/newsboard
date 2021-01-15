@@ -9,6 +9,7 @@ use App\Repositories\UserRepository;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserUpdateRequest;
+use Illuminate\Support\Facades\Cache;
 
 class UserController extends BaseController
 {
@@ -20,6 +21,7 @@ class UserController extends BaseController
     }
     public function index()
     {
+
             $user=Auth::user();
             $cities=Announcement::getAllCities();
 

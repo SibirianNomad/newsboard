@@ -64,9 +64,13 @@
                 <div class="col-sm">
                     <a href="{{ route('announcement.show',$item->id) }}">
                         @if(count($item->photos)==0)
-                            <img src="{{ asset('storage/default_images/empty_picture.png') }}" class="announcement_img">
+                            <img src="{{ asset('storage/default_images/empty_picture.png') }}">
                         @else
-                                <img src="storage/images/{{$item->photos[0]->file_patch}}">
+{{--                                <img src="storage/images/{{$item->photos[0]->file_patch}}">--}}
+{{--                            <div class="imageContainer" style="background-image: url('storage/images/{{$item->photos[0]->file_patch}}')"></div>--}}
+                            <div class="preview-image">
+                                <img src="{{ asset("storage/images/") }}/{{$item->photos[0]->file_patch}}">
+                            </div>
                         @endif
                         <h5>{{$item->title}}</h5>
                     </a>

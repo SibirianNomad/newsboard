@@ -30,7 +30,6 @@ class AnnouncementRepository extends CoreRepository
         $category_id=$this->checkInputSession($request,'category_id');
         $text=$request->input('searchText');
         $status=$request->input('status');
-
         if($id==null){
             $city=$this->checkInputSession($request,'city');
             if($city==null && $id==null){
@@ -41,6 +40,7 @@ class AnnouncementRepository extends CoreRepository
         }else{
             $city=null;
         }
+
         $result=$this
             ->startConditions()
             ->select($fields)

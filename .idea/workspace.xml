@@ -176,18 +176,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../internetShop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../poligon" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\newsboard\storage\app\public\default_images" />
       <recent name="C:\poligon\htdocs\newsboard\app\Http\Requests" />
       <recent name="C:\poligon\htdocs\newsboard\public\js\popup" />
       <recent name="C:\poligon\htdocs\newsboard\resources\views\popup" />
       <recent name="C:\poligon\htdocs\newsboard\app\Repositories" />
-      <recent name="C:\poligon\htdocs\newsboard\resources\views\announcement" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\poligon\htdocs\newsboard\resources\views\includes" />
@@ -278,6 +278,26 @@
       <workItem from="1610524414569" duration="637000" />
       <workItem from="1610526221107" duration="937000" />
       <workItem from="1610531073894" duration="179000" />
+      <workItem from="1610532243676" duration="17000" />
+      <workItem from="1610600928305" duration="1422000" />
+      <workItem from="1610602704605" duration="1922000" />
+      <workItem from="1610604656749" duration="1823000" />
+      <workItem from="1610606515769" duration="1259000" />
+      <workItem from="1610608430022" duration="601000" />
+      <workItem from="1610612289589" duration="1786000" />
+      <workItem from="1610614103632" duration="1790000" />
+      <workItem from="1610615924534" duration="1746000" />
+      <workItem from="1610617734737" duration="1480000" />
+      <workItem from="1610620751601" duration="1255000" />
+      <workItem from="1610622626946" duration="85000" />
+      <workItem from="1610685871534" duration="2437000" />
+      <workItem from="1610688787471" duration="898000" />
+      <workItem from="1610690598611" duration="595000" />
+      <workItem from="1610694070603" duration="26000" />
+      <workItem from="1610705894364" duration="1371000" />
+      <workItem from="1610707908008" duration="1610000" />
+      <workItem from="1610709717330" duration="1778000" />
+      <workItem from="1610711525397" duration="259000" />
     </task>
     <servers />
   </component>
